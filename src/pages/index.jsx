@@ -24,6 +24,15 @@ import logoStarbucks from '@/images/logos/starbucks.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
+import Projects from './projects'
+
+import {
+
+  ChevronRightIcon,
+
+} from '@heroicons/react/24/solid'
+
+
 
 function MailIcon(props) {
   return (
@@ -139,8 +148,8 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
+      company: 'Qure.ai',
+      title: 'Senior Software developer',
       logo: logoPlanetaria,
       start: '2019',
       end: {
@@ -149,26 +158,20 @@ function Resume() {
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
+      company: 'Quantiphi Analytics',
+      title: 'Software developer',
       logo: logoAirbnb,
       start: '2014',
       end: '2019',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
+      company: 'Cognizant Technology Solutions',
+      title: 'Associate',
       logo: logoFacebook,
       start: '2011',
       end: '2014',
     },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
-    },
+   
   ]
 
   return (
@@ -251,49 +254,80 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Spencer Sharp - Software designer, founder, and amateur astronaut
+          Kunjesh Kumar - Web developer
         </title>
         <meta
           name="description"
           content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
         />
       </Head>
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
+     
+     <Container>
+      <div className="relative isolate px-6 pt-16 pb-8 sm:pt-20 lg:px-8">
+          <svg
+            className="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="1d4240dd-898f-445f-932d-e2872fd12de3"
+                width={200}
+                height={200}
+                x="50%"
+                y={0}
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y={0} className="overflow-visible fill-gray-800/20">
+              <path
+                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                strokeWidth={0}
+              />
+            </svg>
+            <rect width="100%" height="100%" strokeWidth={0} fill="url(#1d4240dd-898f-445f-932d-e2872fd12de3)" />
+          </svg>
+          <div
+            className="absolute inset-x-0 top-10 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
+            aria-hidden="true"
+          >
+            <div
+              className="aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20"
+              style={{
+                clipPath:
+                  'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
+              }}
             />
           </div>
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Software Developer and Web nerd
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
+             I am Kunjesh based out of Bengaluru, passionate about user-centric designs, performance optimization, and delivering exceptional results
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <a
+                href="#"
+                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                View projects
+              </a>
+              <a href="#" className="text-sm font-semibold leading-6 text-white">
+                Learn more <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
         </div>
-      </Container>
-      <Photos />
+
+        </Container>
+
+
+        <Projects/>
+
+
+
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
@@ -302,7 +336,7 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Resume />
           </div>
         </div>

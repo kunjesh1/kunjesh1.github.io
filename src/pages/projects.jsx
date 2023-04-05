@@ -8,20 +8,27 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import Vimeo from '@u-wave/react-vimeo'
+import { Button } from '@/components/Button'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid'
+import { GitHubIcon } from '@/components/SocialIcons'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'AnnoMate',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+      'An freehand annotation tool in canvas inspired by Exalidraw',
+    videoLink:"https://vimeo.com/814900563",
+    link: { href: 'http://planetaria.tech', label: 'AnnoMate' },
+    github:"",
     logo: logoPlanetaria,
   },
   {
-    name: 'Animaginary',
+    name: 'React carousel',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+      'A minimal javascript carousel component',
+      videoLink:"https://vimeo.com/814915173",
+    link: { href: '#', label: 'React carousel' },
     logo: logoAnimaginary,
   },
   {
@@ -58,6 +65,8 @@ function LinkIcon(props) {
   )
 }
 
+
+
 export default function Projects() {
   return (
     <>
@@ -68,32 +77,59 @@ export default function Projects() {
           content="Things I’ve made trying to put my dent in the universe."
         />
       </Head>
-      <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-      >
+      <SimpleLayout title="" intro="">
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {projects.map((project) => (
-            <Card as="li" key={project.name}>
-              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                <Image
+ 
+          {projects.map((project, index) => (
+            <Card as="li" key={project.name} className="dark:border-gray-50 ">
+              {/* <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border-gray-50 dark:bg-zinc-800 dark:ring-0 "> */}
+                { (index==0||index==1) && (
+                //  <iframe src="https://drive.google.com/file/d/14UCAUsJ4lQwRvGExaNy1LhGBtnnDGXnw/view" allowfullscreen></iframe>
+                   <Vimeo
+                    video={project?.videoLink}
+                    controls={false}
+                    autoplay
+                    muted
+                    loop
+                    className='w-full h-full max-w'
+                    autopause={false}
+                  />
+                 
+                )}
+
+                {/* <iframe
+                  src="https://player.vimeo.com/video/814900563?h=6ead585b14"
+                  width="640"
+                  height="564"
+                  frameborder="0"
+                  allow="autoplay; fullscreen"
+                  allowfullscreen
+                ></iframe> */}
+              {/* </div> */}
+              {/* <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              </h2> */}
+              <Card.Description>{project.description}</Card.Description>
+              <p className="relative z-10 mt-6 flex text-sm justify-between items-center w-full font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                <div className='flex'>
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">{project.link.label}</span>
+                </div>
+                {/* <Image
                   src={project.logo}
                   alt=""
                   className="h-8 w-8"
                   unoptimized
-                />
-              </div>
-              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link href={project.link.href}>{project.name}</Card.Link>
-              </h2>
-              <Card.Description>{project.description}</Card.Description>
-              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-                <LinkIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2">{project.link.label}</span>
+                /> */}
               </p>
+              <div className='flex justify-center w-full'>
+              <Button href="#" variant="primary" className="group mt-6 mr-2 w-full">Github </Button>
+              <Button href="#" variant="secondary" className="group mt-6 w-full">View <ArrowTopRightOnSquareIcon className='h-4 w-4 text-white'/></Button>
+        
+              </div>
             </Card>
           ))}
         </ul>

@@ -45,3 +45,13 @@ pre[class*='language-'] {
 .token.combinator {
   color: theme('colors.zinc.400');
 }
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.player .vp-video-wrapper.transparent {
+  border-radius: 10px !important;
+}
