@@ -1,0 +1,71 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Kunjesh Kumar',
+  date: '2023-03-01',
+  title: 'React hydration',
+  description:
+    'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+# React Hydration: What It Is and Why It Matters
+
+When building a web application with React, one of the key considerations is how to optimize the rendering process. React's server-side rendering (SSR) is a popular technique for improving initial load times and search engine optimization (SEO). However, there is another technique that is often overlooked: hydration.
+
+## What is React Hydration?
+
+React hydration is the process of attaching a React component to an existing HTML element on the client-side. This is done after the initial HTML has been loaded and the JavaScript has been executed. Hydration allows the client-side JavaScript to take over and continue rendering the application.
+
+In other words, when the server sends HTML containing a React component, the browser will render it like any other HTML element. Once the JavaScript is loaded, it will "hydrate" the HTML and turn it into an interactive React component. This allows the application to feel faster and more responsive because the user can interact with the interface before the entire application has loaded.
+
+## Why is React Hydration Important?
+
+React hydration is important for several reasons:
+
+### 1. Better user experience
+
+Hydrating a React component allows the user to interact with the application faster. This is because the server can send the initial HTML to the browser quickly, and the client-side JavaScript can take over from there. As a result, the user can see and interact with the application while the rest of it is loading in the background.
+
+### 2. Improved SEO
+
+Hydration can also improve SEO because search engines can crawl the initial HTML that is sent by the server. This means that the search engine can see the content of the application without executing the client-side JavaScript. This is especially important for applications that rely heavily on client-side rendering.
+
+### 3. Lower time to interactive
+
+Hydration can also reduce the time to interactive (TTI) for the application. TTI is the time it takes for the user to be able to interact with the application. By hydrating the initial HTML, the client-side JavaScript can take over and continue rendering the application, allowing the user to interact with it faster.
+
+## How to Implement React Hydration
+
+To implement React hydration, you need to do the following:
+
+1. Render the initial HTML on the server using `ReactDOMServer.renderToString()`.
+2. Send the initial HTML to the browser.
+3. Load the client-side JavaScript using a `<script>` tag.
+4. Hydrate the React component using `ReactDOM.hydrate()`.
+
+Here's an example code for implementing React hydration:
+
+```jsx
+import ReactDOMServer from 'react-dom/server'
+import App from './App'
+
+const initialMarkup = ReactDOMServer.renderToString(<App />)
+const html = `
+  <html>
+    <head>
+      <title>My App</title>
+    </head>
+    <body>
+      <div id="app">${initialMarkup}</div>
+      <script src="client.js"></script>
+    </body>
+  </html>
+`
+
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.hydrate(<App />, document.getElementById('app'))
+```

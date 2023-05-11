@@ -28,6 +28,7 @@ import Projects from './projects'
 
 import {
 
+  ArrowTopRightOnSquareIcon,
   ChevronRightIcon,
 
 } from '@heroicons/react/24/solid'
@@ -151,7 +152,7 @@ function Resume() {
       company: 'Qure.ai',
       title: 'Senior Software developer',
       logo: logoPlanetaria,
-      start: '2019',
+      start: '2020',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
@@ -161,18 +162,34 @@ function Resume() {
       company: 'Quantiphi Analytics',
       title: 'Software developer',
       logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      start: '2019',
+      end: '2020',
     },
     {
       company: 'Cognizant Technology Solutions',
-      title: 'Associate',
+      title: 'Software developer',
       logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      start: '2017',
+      end: '2019',
     },
    
   ]
+
+  const downloadCV = ()=>{
+    const fileUrl = 'https://example.com/file.pdf';
+    const fileName = 'file.pdf';
+
+const link = document.createElement('a');
+link.href = fileUrl;
+link.download = fileName;
+document.body.appendChild(link);
+link.click();
+
+  }
+
+  const showResume = ()=>{
+    window.open("https://drive.google.com/file/d/1sG1EqLaAzIe74-cOP3-ChOYvUqjV8uFA/view?usp=share_link", "_blank");
+  }
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -183,9 +200,9 @@ function Resume() {
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+            {/* <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-            </div>
+            </div> */}
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
@@ -214,9 +231,9 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button onClick={showResume} variant="secondary" className="group mt-6 w-full">
+        View CV
+        <ArrowTopRightOnSquareIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
   )
@@ -324,8 +341,8 @@ export default function Home({ articles }) {
         </Container>
 
 
-        <Projects/>
-
+    
+       <Projects/>
 
 
       <Container className="mt-24 md:mt-28">
