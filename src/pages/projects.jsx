@@ -12,7 +12,7 @@ import Vimeo from '@u-wave/react-vimeo'
 import { Button } from '@/components/Button'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid'
 import { GitHubIcon } from '@/components/SocialIcons'
-import { Resources } from './Resources'
+import Resources from './Resources'
 
 const projects = [
   {
