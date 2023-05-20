@@ -11,15 +11,9 @@ const modeScript = `
     let isSystemDarkMode = darkModeMediaQuery.matches
     let isDarkMode = window.localStorage.isDarkMode === 'true' || (!('isDarkMode' in window.localStorage) && isSystemDarkMode)
 
-    if (isDarkMode) {
       document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    }
+      window.localStorage.isDarkMode
+    
   }
 
   function disableTransitionsTemporarily() {

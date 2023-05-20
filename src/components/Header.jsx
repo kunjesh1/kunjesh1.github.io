@@ -254,7 +254,14 @@ export function Header() {
   let avatarRef = useRef()
   let isInitial = useRef(true)
 
+  useEffect(()=>{
+    document.documentElement.classList.toggle('dark')
+  },[])
+
+
+
   useEffect(() => {
+    
     let downDelay = avatarRef.current?.offsetTop ?? 0
     let upDelay = 64
 
@@ -349,6 +356,7 @@ export function Header() {
       window.removeEventListener('resize', updateStyles)
     }
   }, [isHomePage])
+
 
   return (
     <>
